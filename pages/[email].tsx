@@ -4,7 +4,11 @@ import Router, { useRouter } from "next/router";
 export default function UserInfo() {
 	const router = useRouter();
 
-	let data: any = JSON.parse(router.query.data ? router.query.data : "{}");
+	let str: string = "{}";
+
+	let data = JSON.parse(
+		(router.query.data ? router.query.data : str) as string
+	);
 
 	const handleClick = e => {
 		e.preventDefault();
